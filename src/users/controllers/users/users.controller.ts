@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { CreateUserDto } from 'src/users/DTOs/CreateUser.dto';
 
 
@@ -15,6 +15,12 @@ export class UsersController {
     @Post('create')
     createUser(@Body() userData: CreateUserDto) {
         return userData
+    }
+
+    @Get(':id')
+    getUserById(@Param('id') id: string) {
+        return { id }
+
     }
 
 }
